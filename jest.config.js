@@ -1,7 +1,10 @@
-import { pathsToModuleNameMapper } from 'ts-jest/utils'
-import { compilerOptions } from './tsconfig.json'
+const { pathsToModuleNameMapper } = require('ts-jest/utils');
+const { compilerOptions } = require('./tsconfig.json');
 
-export default {
+// For a detailed explanation regarding each configuration property, visit:
+// https://jestjs.io/docs/en/configuration.html
+
+module.exports = {
 	// All imported modules in your tests should be mocked automatically
 	// automock: false,
 
@@ -9,7 +12,7 @@ export default {
 	// bail: 0,
 
 	// The directory where Jest should store its cached dependency information
-	// cacheDirectory: "C:\\Users\\Cliente\\AppData\\Local\\Temp\\jest",
+	// cacheDirectory: "/tmp/jest_rs",
 
 	// Automatically clear mock calls and instances between every test
 	clearMocks: true,
@@ -17,8 +20,10 @@ export default {
 	// Indicates whether the coverage information should be collected while executing the test
 	collectCoverage: true,
 
-	// An array of glob patterns indicating a set of files for which coverage information should be collected
-	collectCoverageFrom: ['<rootDir>/src/modules/**/services/*.ts'],
+  	// An array of glob patterns indicating a set of files for which coverage information should be collected
+  	collectCoverageFrom: [
+        '<rootDir>/src/modules/**/services/*.ts'
+	],
 
 	// The directory where Jest should output its coverage files
 	coverageDirectory: 'coverage',
@@ -74,7 +79,7 @@ export default {
 	// ],
 
 	// A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+	moduleNameMapper: pathsToModuleNameMapper( compilerOptions.paths , {
 		prefix: '<rootDir>/src/',
 	}),
 
