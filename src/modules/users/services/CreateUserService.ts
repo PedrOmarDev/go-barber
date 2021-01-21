@@ -29,7 +29,6 @@ class CreateUserService {
 			throw new AppError('Email adress already used.')
 		}
 
-		// Testando animação do Github
 		const hashedPassword = await this.hashProvider.generateHash(password)
 
 		const user = await this.usersRepository.create({
